@@ -7,8 +7,9 @@ import (
 
 // CONCORRÊNCIA != PARALELISMO
 // A segunda chamada nunca acontecerá porque a primeira nunca terminará.
+// O metodo "go" indica para o programa que, independente se a função terminopu ou não siga o fluxo do programa.
 func main() {
-	escrever("Start")
+	go escrever("Start") // goroutine
 	escrever("Programando em Go!")
 }
 
