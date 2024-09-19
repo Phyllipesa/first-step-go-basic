@@ -6,8 +6,10 @@ import (
 )
 
 // CONCORRÊNCIA != PARALELISMO
+// A segunda chamada nunca acontecerá porque a primeira nunca terminará.
 func main() {
 	escrever("Start")
+	escrever("Programando em Go!")
 }
 
 func escrever(texto string) {
