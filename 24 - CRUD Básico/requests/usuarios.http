@@ -9,3 +9,6 @@ Content-Type: application/json
 
 ### GET usuario
 GET http://localhost:5000/usuario
+
+### GET usuario/{id}
+GET http://localhost:5000/usuario/0
