@@ -10,8 +10,10 @@ Content-Type: application/json
 ### GET usuario
 GET http://localhost:5000/usuario
 
+
 ### GET usuario/{id}
 GET http://localhost:5000/usuario/1
+
 
 ### PUT usuario/{id}
 PUT http://localhost:5000/usuario/1
@@ -21,3 +23,7 @@ Content-Type: application/json
     "nome": "John Dee",
     "email": "johnDoo@example.com"
 }
+
+
+### DELETE usuario/{id}
+DELETE  http://localhost:5000/usuario/2
