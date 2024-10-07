@@ -1,5 +1,4 @@
 # Cria um usuario
-
 POST http://localhost:5000/usuario
 Content-Type: application/json
 
@@ -7,3 +6,6 @@ Content-Type: application/json
     "nome": "John Doo",
     "email": "johnDoo@example.com"
 }
+
+### GET usuario
+GET http://localhost:5000/usuario
