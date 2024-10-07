@@ -1,6 +1,7 @@
 package main
 
 import (
+	"crud/servidor"
 	"fmt"
 	"log"
 	"net/http"
@@ -11,10 +12,9 @@ import (
 func main() {
 	// CRUD
 
+	// Configurando todas as rotas da apicação
 	router := mux.NewRouter()
-	router.HandleFunc("/usuario", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Hello World!"))
-	}).Methods(http.MethodPost)
+	router.HandleFunc("/usuario", servidor.CriarUsuario).Methods(http.MethodPost)
 
 	fmt.Println("Escutando na porta 5000")
 	log.Fatal(http.ListenAndServe(":5000", router))
