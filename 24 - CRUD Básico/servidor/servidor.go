@@ -19,6 +19,7 @@ type usuario struct {
 
 // CriarUsuario insere um usuário no banco de dados
 func CriarUsuario(w http.ResponseWriter, r *http.Request) {
+	// Lendo o corpo da requisição
 	corpoRequisicao, erro := io.ReadAll(r.Body)
 	if erro != nil {
 		w.Write([]byte("Falha ao ler o corpo da requisição!"))
@@ -154,4 +155,58 @@ func BuscarUsuario(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("Erro ao convertere o usuário para JSON!"))
 		return
 	}
+}
+
+// AtualiarUsuario altera os dados de um usuário no banco de dados
+func AtualizarUsuario(w http.ResponseWriter, r *http.Request) {
+	// Recuperando os parâmetros da requisição
+	parametros := mux.Vars(r)
+
+	// Convertendo o ID de string para int32
+	ID, erro := strconv.ParseUint(parametros["id"], 10, 32)
+	if erro != nil {
+		w.Write([]byte("Erro ao converter o parâmetro para inteiro!"))
+		return
+	}
+
+	// Lendo o corpo da requisição
+	corpoRequisicao, erro := io.ReadAll(r.Body)
+	if erro != nil {
+		w.Write([]byte("Erro ao ler o corpo da requisição!"))
+		return
+	}
+
+	// Converte o corpo da requisição para um struct do tipo usuario
+	var usuario usuario
+	if erro = json.Unmarshal(corpoRequisicao, &usuario); erro != nil {
+		w.Write([]byte("Erro ao converter o usuário para struct!"))
+		return
+	}
+
+	// Conecta no banco de dados
+	db, erro := banco.Conectar()
+	if erro != nil {
+		w.Write([]byte("Erro ao conectar no banco de dados!"))
+		return
+	}
+	defer db.Close()
+
+	// Preparando o comando de inserção
+	statement, erro := db.Prepare("update usuarios set nome = ?, email = ? where id = ?")
+	if erro != nil {
+		w.Write([]byte("Erro ao criar o statement!"))
+		return
+	}
+	defer statement.Close()
+
+	// Atualizando os dados de um usuario especifico
+	// O ID vem do parametro, NÃO TENTE ACESSAR O ID PELO usuario.id
+	// O primeiro parametro(insercao) é ignorado porque a insercao tem duas informações: id inserido(caso for uma insercao)
+	// e a quantidade de linhas afetadas. COmo não queremos nenhuma dessas informações, nos ignoramos esse parametro.
+	if _, erro := statement.Exec(usuario.Nome, usuario.Email, ID); erro != nil {
+		w.Write([]byte("Erro ao atualizar o usuário!"))
+		return
+	}
+
+	w.WriteHeader(http.StatusNoContent)
 }
