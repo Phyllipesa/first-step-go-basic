@@ -45,16 +45,24 @@ func main() {
 
 	// ARRAYS INTERNOS
 	fmt.Println("-----ARRAYS INTERNOS-----")
+	/**
+	Criando um slice com a função make. A função make cria um slice com um array interno.
+	No caso abaixo, ele cria um array com 11 posições, e retorna um slice de 10 posições.
+	- O primeiro parâmetro é o tipo do slice
+	- O segundo parâmetro é o tamanho do slice
+	- O terceiro parâmetro é a capacidade do slice
+	*/
 	slice3 := make([]float32, 10, 11)
 	fmt.Println(slice3)
 
 	slice3 = append(slice3, 5)
 	fmt.Println(len(slice3)) // length
 	fmt.Println(cap(slice3)) // capacity
-
-	// O Slice estava com a sua capacidade esgotada(11/11). Quando o GO entende que o array vai "estourar"
-	//  ele cria um novo array para se referenciar. Se o array tinha 11 elementos e eu estou querendo
-	// colocar 12, então ele cria uma array de 24.
+	/**
+	O Slice estava com a sua capacidade esgotada(11/11). Quando o GO entende que o array vai "estourar"
+	ele cria um novo array para se referenciar e dobra sua capacidade. Se o array tinha 11 elementos e
+	eu estou querendo colocar 12, então ele cria uma array de 24.
+	*/
 	slice3 = append(slice3, 6)
 	fmt.Println(len(slice3)) // length
 	fmt.Println(cap(slice3)) // capacity

@@ -23,6 +23,8 @@ func diaDaSemana(numero int) string {
 	}
 }
 
+// Fallthrough é usado para passar para o próximo case, mesmo que o case atual não seja verdadeiro.
+// O código abaixo imprime "Segunda" e não "Domingo" porque o case 1 não é verdadeiro.
 func diaDaSemana2(numero int) string {
 	var diaDaSemana string
 

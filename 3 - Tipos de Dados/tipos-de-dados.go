@@ -5,9 +5,27 @@ import (
 	"fmt"
 )
 
+/*
+* main
+
+Tipos de Dados
+
+	Inteiros: Existem 2 tipos de tipagens o INT(permite numeros negativos e positivos) e UINT(permite apenas numeros positivos)
+	- int (utiliza a arquitetura do seu pc como base) - int8 - int16 - int32 - int64 -
+	- uint (utiliza a arquitetura do seu pc como base) - uint8 - uint16 - uint32 - uint64 - uintptr
+
+		Alias
+		- INT32 = RUNE
+		- BYTE = UNIT8
+
+	Reais: Existem 2 tipos de tipagens o float32 e float64
+
+* - Error: Utilizado para retornar um erro
+*/
 func main() {
 
 	// Tipagem INT/ FLOAT/ STRING/ BOOL é associada por padrão
+	// INT
 	// 	pela arquitetura do seu PC
 	// exemplo: 32 / 64 bits
 

@@ -10,6 +10,7 @@ func main() {
 		"sobrenome": "Silva",
 	}
 	fmt.Println(usuario)
+	fmt.Println(usuario["nome"])
 
 	usuario2 := map[int]string{
 		1: "Lucas",

@@ -26,7 +26,7 @@ func main() {
 	// fmt.Println()
 	// fmt.Println("-----Loops 3-----")
 
-	// nomes := [3]string{"Dagni", "Hearden", "Francisco"}
+	// nomes := [3]string{"Dagny", "Hearden", "Francisco"}
 
 	// for indice, nome := range nomes {
 	// 	fmt.Println(indice, nome)
@@ -43,6 +43,8 @@ func main() {
 	// fmt.Println()
 	// fmt.Println("-----Loops 4-----")
 
+	// O range não funciona em um struct, apenas em um array, slice, map ou string.
+
 	// for indice, letra := range "PALAVRA" {
 	// 	fmt.Println(indice, letra)
 	// }
@@ -55,7 +57,7 @@ func main() {
 	fmt.Println("-----Loops 5-----")
 
 	usuario := map[string]string{
-		"nome":      "Dagni",
+		"nome":      "Dagny",
 		"sobrenome": "Taggart",
 	}
 
