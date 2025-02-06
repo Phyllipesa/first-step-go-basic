@@ -6,7 +6,7 @@ import (
 )
 
 /*
-Nesse cenário a primeira fun tem seu funcionamento prejudicado pela segunda fun.
+Nesse cenário a primeira func tem seu funcionamento prejudicado pela segunda func.
 
 O canal 1 é lido primeiro e precisa de menos tempo, e o canal 2 é lido depois e precisa de mais tempo, então a primeira função fica limitada
 ao tempo de execução da segunda.

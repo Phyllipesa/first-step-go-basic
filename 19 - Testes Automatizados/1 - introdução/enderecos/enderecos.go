@@ -19,7 +19,7 @@ func TipoDeEndereco(endereco string) string {
 	}
 
 	if enderecoTemUmTipoValido {
-		return strings.Title(primeiraPalavraDoEndereco)
+		return primeiraPalavraDoEndereco
 	}
 
 	return "Tipo inválido"

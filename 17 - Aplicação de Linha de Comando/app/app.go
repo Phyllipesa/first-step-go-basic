@@ -21,6 +21,7 @@ func Gerar() *cli.App {
 		},
 	}
 
+	// É um slice de ações que a aplicação pode executar
 	app.Commands = []cli.Command{
 		{
 			Name:   "ip",
@@ -38,7 +39,12 @@ func Gerar() *cli.App {
 	return app
 }
 
+/*
+Função que busca os IPs de um host
+command: go run main.go ip --host amazon.com.br
+*/
 func buscarIps(c *cli.Context) {
+	// Pegando o valor do host passado como argumento
 	host := c.String("host")
 
 	ips, erro := net.LookupIP(host)
@@ -51,7 +57,12 @@ func buscarIps(c *cli.Context) {
 	}
 }
 
+/*
+Função que busca os servidores de um host
+command: go run main.go servidores --host amazon.com.br
+*/
 func buscarServidores(c *cli.Context) {
+	// Pegando o valor do host passado como argumento
 	host := c.String("host")
 
 	servidores, erro := net.LookupNS(host)

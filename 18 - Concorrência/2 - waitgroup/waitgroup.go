@@ -6,20 +6,15 @@ import (
 	"time"
 )
 
-// WaitGroup - garante que todas as goroutines terminem antes de encerrar o programa
-// sync - pacote de sincronização para garantir a segurança de concorrência
-
 /*
-O WaitGroup é usado para esperar que todas as goroutines terminem antes de encerrar o programa.
+WaitGroup - garante que todas as goroutines terminem antes de encerrar o programa.
 Ele é útil quando você precisa aguardar a conclusão de várias operações concorrentes antes de prosseguir.
-*/
 
-/*
-O método Add adiciona uma nova goroutine ao WaitGroup. Cada goroutine chamando Done decrementa o contador do WaitGroup.
+sync - pacote de sincronização para garantir a segurança de concorrência
+
+No método Add você informa quantas goroutines . Cada goroutine chamando Done decrementa o contador do WaitGroup.
 O método Wait bloqueia até que o contador do WaitGroup seja zero, indicando que todas as goroutines terminaram.
-*/
 
-/*
 Neste exemplo, criamos um WaitGroup e adicionamos duas goroutines. Cada goroutine chama a função escrever e,
 
 	após completar sua execução, chama Done para decrementar o contador do WaitGroup.
